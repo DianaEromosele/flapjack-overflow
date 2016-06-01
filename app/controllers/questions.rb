@@ -25,16 +25,11 @@ end
 
 get '/questions/:id/edit' do
   @q = Question.find_by(id: params[:id])
-  # if session["user_id"] == @entry.user_id
     erb :'questions/edit'
-  # else
-  #   erb :'404'
-  # end
 end
 
 put '/questions/:id' do
   @q = Question.find_by(id: params[:id])
-  # if session["user_id"] == @q.user_id
     @q.assign_attributes(title: params['title'], body: params['body'])
     if @q.save
       redirect "questions/#{@q.id}"
@@ -42,17 +37,10 @@ put '/questions/:id' do
       @errors = @q.errors.full_messages
       erb :'questions/edit'
     end
-  # else
-  #   erb :'404'
-  # end
 end
 
 delete '/questions/:id' do
   @q = Question.find_by(id: params[:id])
-  # if session["user_id"] == @q.user_id
     @q.destroy
     redirect '/questions'
-  # else
-  #   erb :'404'
-  # end
 end

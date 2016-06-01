@@ -85,3 +85,11 @@ code {
 textarea {
     resize: none;
 }
+
+#upvote-container {
+    color: blue;
+}
+
+#downvote-container {
+    color: red;
+}
