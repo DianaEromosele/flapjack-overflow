@@ -1,0 +1,20 @@
+<% if @errors %>
+  <h3><span>Something went wrong:</span></h3>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><p><%= error %></p></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<main class="form-wrapper">
+  <form id = "new_question_form" method="post" action="/questions">
+    <div>
+      <input type="text" name="title" placeholder="What's Your Question?"></input>
+    </div>
+    <div>
+      <textarea rows="5" columns="10" name="body" placeholder="Explain"></textarea>
+    </div>
+    <input type="submit" value="Post">
+  </form>
+</main>
