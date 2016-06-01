@@ -17,14 +17,14 @@ post '/answers' do
 end
 
 # edit an answer
-get '/questions/:id/answers/:id/edit' do
+get '/questions/:question_id/answers/:id/edit' do
   @question = Question.find_by(id: params[:question_id])
   @answer = Answer.find_by(id: params[:id])
   erb :'answers/edit' # partial?
 end
 
-put '/questions/:id/answers/:id' do 
-  @question = Question.find_by(id: params[:id])
+put '/questions/:question_id/answers/:id' do 
+  @question = Question.find_by(id: params[:question_id])
   @answer = @question.answers.find_by(id: params[:id])
 
   @answer.assign_attributes(params[:answer])
@@ -37,9 +37,9 @@ put '/questions/:id/answers/:id' do
 end
 
 # delete an answer
-delete "/questions/:id/answers/:id" do
-  @question = Question.find_by(id: params[:id])
-  @answer = @question.answers.find_by(id: params[:id])
+delete "/questions/:question_id/answers/:id" do
+  @question = Question.find_by(id: params[:question_id])
+  @answer = Answer.find_by(id: params[:id])
     @answer.destroy
     redirect "/questions/#{@question.id}"
  
