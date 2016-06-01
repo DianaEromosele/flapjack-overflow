@@ -10,10 +10,10 @@ end
 post '/questions' do
   @q = Question.new(title: params['title'], body: params['body'], user_id: 1)
   if @q.save
-    redirect '/questions'
+    erb :'questions/_single', layout: false
   else
     @errors = @q.errors.full_messages
-    erb :'questions/new'
+    erb :'questions/new', layout: false
   end
 end
 

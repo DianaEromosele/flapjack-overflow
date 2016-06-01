@@ -1,10 +1,12 @@
 <% if @errors %>
+<div id="errors_list">
   <h3><span>Something went wrong:</span></h3>
   <ul>
     <% @errors.each do |error| %>
       <li><p><%= error %></p></li>
     <% end %>
   </ul>
+</div>
 <% end %>
 
 <main class="form-wrapper">
