@@ -1,0 +1,14 @@
+<form id="answer_form" method="post" action="/answers">
+  <label for "answer_body">Answer:</label>
+  <input id="answer_body" type="text" name="answer[body]" placeholder="Body" required>
+  <input type="submit" value="submit your answer">
+</form>
+
+
+  <%if @errors%>
+<ul>
+    <%@errors.each do |error| %>
+<li><%error.full_message%></li>
+    <%end%>
+  <%end%>
+</ul>
