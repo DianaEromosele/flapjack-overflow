@@ -2,7 +2,9 @@
 
 <text id="error_messages">
 <% if @errors %>
-  <%= @errors.each {|error| error} %>
+  <% @errors.each do |error| %>
+  <%= error %>
+  <% end %>
 <% end %>
 </text>
 

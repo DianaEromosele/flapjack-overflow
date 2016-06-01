@@ -1,10 +1,10 @@
 <!-- session[userid] goes here -->
 <% if true %>
-<a href="/questions/new">Ask a question</a>
+<a id="new_q_link" href="/questions/new">Ask a question</a>
 <% end %>
 
-<main role="main">
-  <ul class="question_list">
+<main id="question_container" role="main">
+  <ul id="question_list">
     <% @qs.each do |q| %>
       <li class="question_in_list">
         <span><%= q.votes.length %> votes</span>
