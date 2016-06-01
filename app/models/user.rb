@@ -6,6 +6,5 @@ class User < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
 
 end

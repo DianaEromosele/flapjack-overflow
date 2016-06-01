@@ -15,5 +15,6 @@ end
 
 get "/users/:id" do
   @user = User.find_by(id: params[:id])
+  @questions = @user.questions.order("created_at desc")
   erb :"users/show"
 end

@@ -3,7 +3,9 @@
 <h1>Sign Up for Flapjack Overflow</h1>
 
 <% if @errors %>
-  <%= @errors.each {|error| error} %>
+  <% @errors.each do |error| %>
+  <div>The <%=  error %>.</div>
+  <% end %>
 <% end %>
 
 <form method="post" action="/users">
