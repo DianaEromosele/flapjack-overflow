@@ -2,3 +2,34 @@
 <h2><%= @q.body %></h2>
 <p>by: <%= @q.user.username %></p>
 <p>posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
+
+
+<% @q.answers.each do |answer| %>
+  <%= answer.body %>
+  <a href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
+
+   <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
+        <label for "answer_delete">Answer:</label>
+        <input id="answer_delete" type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete answer" class="button">
+      </form>
+
+<% end %>
+
+
+  <form id="answer_form" method="post" action="/answers">
+  <label for "answer_body">Answer:</label>
+  <input type="hidden" name="question_id" value=<%=@q.id%> >
+  <input id="answer_body" type="text" name="body" placeholder="Answer" required>
+  <input type="submit" value="submit your answer">
+</form>
+
+
+
+<%if @errors%>
+  <ul>
+  <%@errors.each do |error| %>
+  <li><%error.full_message%></li>
+  <%end%>
+<%end%>
+  </ul>
