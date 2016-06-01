@@ -33,3 +33,20 @@
   <%end%>
 <%end%>
   </ul>
+
+<article id="upvote-container">
+  <p><%= @q.votes.length %></p>
+  <p>Upvote</p>
+  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
+    <button type="submit" name="submit_param" value="submit_value"></button>
+  </form>
+</article>
+
+<article id="downvote-container">
+  <p>Downvote</p>
+  <form method="post" action='/questions/<%= @q.id %>/downvote' class="new-question-vote">
+    <button type="submit" name="submit_param" value="submit_value"></button>
+  </form>
+</article>
+
+
