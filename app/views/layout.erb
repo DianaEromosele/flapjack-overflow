@@ -23,13 +23,25 @@
 <div id="content">
   <header>
     <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
+
     <div id="login-toolbar">
-      <% if current_user %>
-        <a href="/logout">Logout</a>
+      <% if logged_in? %>
+        <a href="/">Home</a> |
+         Welcome, <a href="/users/<%= current_user.id%>"> <%= current_user.username.capitalize %> </a> |
+         <a href="/questions/new">Post a New Question</a> |
+         <a href="/logout">Logout</a>
       <% else %>
-        <a href="/login">Login</a>
+      <a href="/">Home</a> |
+         <a href="/login">Login</a> |
+        <a href="/users/new">Register for Flapjack Overflow</a>
+
       <% end %>
+
+
   </header>
+
+
+
   <%= yield %>
 </div>
 </body>
