@@ -1,0 +1,4 @@
+<h1><%= @q.title %></h1>
+<h2><%= @q.body %></h2>
+<p>by: <%= @q.user.username %></p>
+<p>posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>

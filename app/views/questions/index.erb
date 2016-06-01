@@ -1,0 +1,18 @@
+<!-- session[userid] goes here -->
+<% if true %>
+<a href="/questions/new">Ask a question</a>
+<% end %>
+
+<main role="main">
+  <ul class="question_list">
+    <% @qs.each do |q| %>
+      <li class="question_in_list">
+        <span><%= q.votes.length %> votes</span>
+        <span><%= q.answers.length %> answers</span>
+        <span>0 views</span>
+        <a href="/questions/<%= q.id %>"><%= q.title %></a>
+        <div>Posted on <%= q.created_at.strftime('%B %e, %Y') %> by <%= q.user.username %></div>
+      </li>
+    <% end %>
+  </ul>
+</main>
