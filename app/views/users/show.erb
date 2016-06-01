@@ -1,0 +1,14 @@
+<h1> <%= current_user.username.capitalize %> </h1>
+<p id="user_show_bio"> FlapJack Overflow member since <%= current_user.created_at.strftime("%m-%d-%Y") %></p>
+
+
+<% @questions = @user.questions.order("created_at desc") %>
+
+<ol>
+<%  @questions .each do |question| %>
+
+<li> <a href="/questions/<%= question.id %>"> <%= question.title %> </a> </li>
+
+
+<% end %>
+</ol>
