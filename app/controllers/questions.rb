@@ -9,6 +9,8 @@ end
 
 post '/questions' do
   @q = Question.new(title: params['title'], body: params['body'], user_id: session['user_id'])
+  # tags = params['tags'].split(' ')
+  # p tags
   if @q.save
     erb :'questions/_single', layout: false
   else
