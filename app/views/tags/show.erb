@@ -1,0 +1,6 @@
+<span class="single_tag"><%= @tag.name %></span>
+<% @tag.questions.each do |q| %>
+  <ul>
+  <li><a href="/questions/<%= q.id %>"><%= q.title %></a></li>
+  </ul>
+<% end %>

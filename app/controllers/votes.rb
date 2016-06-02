@@ -1,6 +1,6 @@
 post '/questions/:id/upvote' do
   question = Question.find_by(id: params[:id])
-  question.votes.create
+  question.votes.create(user_id: session['user_id'])
   redirect "/questions/#{question.id}"
 end
 
@@ -13,7 +13,7 @@ end
 post '/answers/:id/upvote' do
   question = Question.find_by(id: params[:id])
   answer = question.answers.find_by(id: params[:id])
-  answer.votes.create
+  answer.votes.create(user_id: session['user_id'])
   redirect "/question/#{question.id}"
 end
 
