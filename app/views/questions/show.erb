@@ -6,6 +6,7 @@
 
 <% @q.answers.each do |answer| %>
   <%= answer.body %>
+  <div><%= answer.user.username %></div>
   <a href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
 
    <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
