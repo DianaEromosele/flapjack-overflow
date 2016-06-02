@@ -1,5 +1,5 @@
 get '/questions' do
-  @qs = Question.all
+  @qs = Question.all.order('created_at desc')
   erb :'questions/index'
 end
 
@@ -20,6 +20,8 @@ end
 get '/questions/:id' do
   @q = Question.find_by(id: params[:id])
   halt(404, erb(:'404')) if @q.nil?
+  @q.views += 1
+  @q.save
   erb :"questions/show"
 end
 

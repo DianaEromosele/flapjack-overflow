@@ -3,7 +3,6 @@
 <p>by: <%= @q.user.username %></p>
 <p>posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
 
-
 <% @q.answers.each do |answer| %>
   <%= answer.body %>
   <div><%= answer.user.username %></div>
