@@ -1,0 +1,13 @@
+<%= answer.body %>
+<div><%= answer.user.username %></div>
+<%= answer.created_at.strftime("%m-%d-%Y") %>
+
+  <div>
+    <button class="flapjack-button"><a href="/questions/<%=@question.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
+    </button>
+  </div>
+
+  <form class="flapjack-button" id="delete_answer_form" method="post" action="/questions/<%= @question.id %>/answers/<%= answer.id %>">
+    <input id="answer_delete" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete answer" class="button">
+  </form>

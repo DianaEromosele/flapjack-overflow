@@ -5,7 +5,7 @@
 
 <main id="question_container" role="main">
   <ul id="question_list">
-    <% @qs.each do |q| %>
+    <% @questions.each do |question| %>
       <li class="question_in_list">
         <span class="q_stat"><div class="count"><%= q.votes.length %></div> <div class="counted">votes</div></span>
         <span class="q_stat"><div class="count"><%= q.answers.length %></div> <div class="counted">answers</div></span>

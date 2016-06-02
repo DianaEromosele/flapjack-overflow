@@ -16,6 +16,35 @@
 
     <% end %>
 
+<div class="answers_container">
+  <% @q.answers.each do |answer| %>
+    <%= answer.body %>
+    <div><%= answer.user.username %></div>
+    <%= answer.created_at.strftime("%m-%d-%Y") %>
+
+
+<div id="edit_answer_section">
+  <a id="edit_answer_link" class "flapjack-button" href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
+</div>
+
+
+
+
+  <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
+    <input id="answer_delete" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete answer" class="flapjack-button">
+  </form>
+
+<% end %>
+
+</div>
+
+<div id="new_answer">
+
+  <a class="flapjack-button" id="submit_answer_link" href="/questions/<%= @q.id %>/answers/new">Submit an Answer</a>
+
+</div>
+
 <div>
   <% if session['user_id'] == @q.user_id %>
     <a class="button" href="/questions/<%= @q.id %>/edit">Edit your question</a>
@@ -27,6 +56,8 @@
   <p>Upvote</p>
   <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
     <button id="up-vote-button" type="submit" name="submit_param" value="submit_value"></button>
+  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
+    <button type="submit" name="submit_param" value="submit_value"></button>
   </form>
 </article>
 

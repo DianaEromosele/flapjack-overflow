@@ -1,0 +1,6 @@
+<form id="edit_form" method="post" action="/questions/<%= @question.id %>/answers/<%= @answer.id %>">
+  <input type="hidden" name="_method" value="PUT">
+  <label for "edit_answer">Answer:</label>
+  <input id="edit_answer" type="text" name="answer[body]" placeholder="Body" value="<%= @answer.body %>">
+  <input type="submit" value="update your answer">
+</form>
