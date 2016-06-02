@@ -7,10 +7,10 @@
   <ul id="question_list">
     <% @qs.each do |q| %>
       <li class="question_in_list">
-        <span class="q_stat"><%= q.votes.length %> votes</span>
-        <span class="q_stat"><%= q.answers.length %> answers</span>
-        <span class="q_stat"><%= q.views %> views</span>
-        <a href="/questions/<%= q.id %>"><%= q.title %></a>
+        <span class="q_stat"><div class="count"><%= q.votes.length %></div> <div class="counted">votes</div></span>
+        <span class="q_stat"><div class="count"><%= q.answers.length %></div> <div class="counted">answers</div></span>
+        <span class="q_stat"><div class="count"><%= q.views %></div> <div class="counted">views</div></span>
+        <a class="q_title" href="/questions/<%= q.id %>"><%= q.title %></a>
         <div>
         <% if q.tags.length > 0 %>
           <% q.tags.each do |tag| %>
