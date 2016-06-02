@@ -119,3 +119,7 @@ textarea {
 .question_in_list {
     list-style-type: none;
 }
+
+#created_by {
+    font-size: 18px;
+}
