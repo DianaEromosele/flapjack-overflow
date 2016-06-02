@@ -123,3 +123,11 @@ textarea {
 #created_by {
     font-size: 18px;
 }
+
+.single_tag {
+    font-size: 14px;
+    color: white;
+    background: blue;
+    padding: 5px;
+    border-radius: 5px;
+}
