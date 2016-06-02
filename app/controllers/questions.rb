@@ -13,7 +13,7 @@ post '/questions' do
   if @q.save
     tags.each do |tag|
       new_tag = Tag.find_or_create_by(name: tag)
-      QuestionTag.create(question_id: @q.id, tag_id: new_tag.id)
+      QuestionTag.find_or_create_by(question_id: @q.id, tag_id: new_tag.id)
     end
     erb :'questions/_single', layout: false
   else
@@ -58,6 +58,7 @@ end
 delete '/questions/:id' do
   @q = Question.find_by(id: params[:id])
   if session["user_id"] == @q.user_id
+    QuestionTag.where(question_id: @q.id).destroy_all
     @q.destroy
     redirect '/questions'
   else
