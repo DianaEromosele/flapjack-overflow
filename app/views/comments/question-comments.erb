@@ -1,0 +1,14 @@
+<form id="question-comment-form" method="post" action="/questions/<%= @question.id %>/comments">
+  <label for "comment_body">Comment:</label>
+  <input id="comment_body" type="text" name="body" placeholder="Your Comment Here" required>
+  <input type="submit" value="Make a Comment">
+</form>
+
+
+  <%if @errors%>
+<ul>
+    <%@errors.each do |error| %>
+<li><%error.full_message%></li>
+    <%end%>
+  <%end%>
+</ul>
