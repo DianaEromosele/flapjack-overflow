@@ -126,8 +126,22 @@ textarea {
 
 .single_tag {
     font-size: 14px;
-    color: white;
     background: blue;
     padding: 5px;
     border-radius: 5px;
+}
+
+.tag_link:link {
+    color: white;
+    text-decoration: none;
+}
+
+.tag_link:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.question_in_list {
+    border-top: 1px solid gray;
+    padding-top: 5px;
 }

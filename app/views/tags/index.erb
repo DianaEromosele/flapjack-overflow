@@ -1,3 +1,3 @@
 <% Tag.all.each do |tag| %>
-<span class="single_tag"><%= tag.name %></span>
+<span class="single_tag"><a class="tag_link" href='/tags/<%= tag.id %>'><%= tag.name %></a></span>
 <% end %>
