@@ -19,8 +19,8 @@
           <% else %>
           <span class="single_tag"><a class="tag_link" href='/tags'>tags</a></span>
           <% end %>
+          <span id="created_by">Posted on <%= q.created_at.strftime('%B %e, %Y') %> by <a href='/users/<%= q.user.id %>'><%= q.user.username %></a></span>
         </div>
-        <div id="created_by">Posted on <%= q.created_at.strftime('%B %e, %Y') %> by <a href='/users/<%= q.user.id %>'><%= q.user.username %></a></div>
       </li>
     <% end %>
   </ul>
