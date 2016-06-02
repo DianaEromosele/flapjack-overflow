@@ -26,18 +26,13 @@
 
     <div id="login-toolbar">
       <% if logged_in? %>
-        <a href="/">Home</a> |
-         Welcome, <a href="/users/<%= current_user.id%>"> <%= current_user.username.capitalize %> </a> |
-         <a href="/questions/new">Post a New Question</a> |
-         <a href="/logout">Logout</a>
+        <a href="/users/<%= current_user.id%>"> <%= current_user.username %> </a> |
+        <a href="/logout">Log out</a> |
       <% else %>
-      <a href="/">Home</a> |
-         <a href="/login">Login</a> |
-        <a href="/users/new">Register for Flapjack Overflow</a>
-
+        <a href="/login">Log in</a> |
+        <a href="/users/new">Register</a> |
       <% end %>
-
-
+      <a href="/">Home</a>
   </header>
 
 
