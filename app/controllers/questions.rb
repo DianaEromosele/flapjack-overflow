@@ -20,6 +20,7 @@ end
 get '/questions/:id' do
   @q = Question.find_by(id: params[:id])
   halt(404, erb(:'404')) if @q.nil?
+  @comments = @q.comments.limit(3)
   @q.views += 1
   @q.save
   erb :"questions/show"
