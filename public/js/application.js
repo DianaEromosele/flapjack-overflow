@@ -5,6 +5,7 @@ $(document).ready(function() {
       url: 'questions/new',
       method: 'get'
       }).done(function(response){
+        $('#new_q_link').hide();
         $('#question_list').prepend(response);
       });
   });
