@@ -2,10 +2,20 @@
 <h2><%= @q.body %></h2>
 <p>by: <%= @q.user.username %></p>
 <p>posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
+<p><a href="/questions/<%= @q.id %>/comments/new">Comment</a></p>
+
+<% @q.comments.each do |comment| %>
+  <article class="comment-on-question"><%= comment.body %> -- <%= comment.user.username %></article>
+<% end %>
 
 <% @q.answers.each do |answer| %>
   <%= answer.body %>
   <div><%= answer.user.username %></div>
+  <div><a href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
+
+  <div><% answer.comments.each do |comment| %></div>
+    <div><%= comment.body %> -- <%= comment.user.username %></div>
+  <% end %>
   <a href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
 
    <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
