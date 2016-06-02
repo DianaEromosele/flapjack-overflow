@@ -11,6 +11,11 @@
         <span class="q_stat"><%= q.answers.length %> answers</span>
         <span class="q_stat"><%= q.views %> views</span>
         <a href="/questions/<%= q.id %>"><%= q.title %></a>
+        <div>
+        <% q.tags.each do |tag| %>
+        <span class="single_tag"><%= tag.name %></span>
+        <% end %>
+        </div>
         <div id="created_by">Posted on <%= q.created_at.strftime('%B %e, %Y') %> by <%= q.user.username %></div>
       </li>
     <% end %>
