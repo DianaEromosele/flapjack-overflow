@@ -9,7 +9,7 @@
       <li class="question_in_list">
         <span><%= q.votes.length %> votes</span>
         <span><%= q.answers.length %> answers</span>
-        <span>0 views</span>
+        <span><%= q.views %> views</span>
         <a href="/questions/<%= q.id %>"><%= q.title %></a>
         <div>Posted on <%= q.created_at.strftime('%B %e, %Y') %> by <%= q.user.username %></div>
       </li>
