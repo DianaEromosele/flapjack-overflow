@@ -9,9 +9,12 @@ end
 
 post '/questions' do
   @q = Question.new(title: params['title'], body: params['body'], user_id: session['user_id'])
-  # tags = params['tags'].split(' ')
-  # p tags
+  tags = params['tags'].split(' ')
   if @q.save
+    tags.each do |tag|
+      new_tag = Tag.find_or_create_by(name: tag)
+      QuestionTag.create(question_id: @q.id, tag_id: new_tag.id)
+    end
     erb :'questions/_single', layout: false
   else
     @errors = @q.errors.full_messages
