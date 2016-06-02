@@ -11,6 +11,10 @@
 <p>by: <%= @q.user.username %></p>
 <p>posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
 
+<% if session['user_id'] == @q.user_id %>
+<a href="/questions/<%= @q.id %>/edit">Edit your question</a>
+<% end %>
+
 <article id="upvote-container">
   <p><%= @q.votes.length %></p>
   <p>Upvote</p>
