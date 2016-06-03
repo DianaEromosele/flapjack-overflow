@@ -57,15 +57,16 @@ header {
     margin-left: 1200px;
     padding-bottom: 100px;
     font-size: 50px;
+
 }
 
 
 
 #content {
-    margin: 0 auto;  
-    padding: 0 1em; 
-    max-width: 37em; 
-    position: relative; 
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 37em;
+    position: relative;
     top: 400px;
     width: 61.8%;
 }
@@ -492,7 +493,7 @@ span.q_stat {
     -webkit-box-shadow: 8px 1px 10px #666666;
     -moz-box-shadow: 8px 1px 10px #666666;
     box-shadow: 8px 1px 10px #666666;
-    font-family: 'Open Sans Condensed', sans-serif; 
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 50px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
@@ -557,4 +558,54 @@ textarea:focus {
     font-style: normal;
     font-size: 50px;
     color: #1497B8;
+}
+
+#vote-container {
+    width: 20%;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.new-up-vote {
+    padding: 0;
+    margin: 0;
+ /*   border: 1px dashed black;*/
+    position: relative;
+    bottom: 2%;
+}
+
+.new-down-vote {
+    padding: 0;
+    margin: 0;
+    position: relative;
+   /* border: 1px dashed black;*/
+    bottom: 13%;
+}
+
+#up-vote-button {
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 30px solid #1497b8;
+    position: relative;
+    top: 50%;
+    left: 41%;
+}
+
+#down-vote-button {
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-top: 30px solid #8f8b8b;
+    position: relative;
+    top: 50%;
+    left: 41%;
+}
+
+.vote-tally {
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
