@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Open+Sans+Condensed:300,700);
 
 #user_show_bio {
-    font-size: large;
+    font-size: 24px;
     font-style: italic;
     font-style: bold;
     color: red;
@@ -46,7 +46,6 @@ header {
 }
 
 #login-toolbar {
-    /*text-align: right;  */
     margin-left: 38%;  
     background-color: white;
 }
@@ -82,6 +81,7 @@ p{
     line-height: 40px;
 }
 
+
 p#q_show_user_name-date {
     font-size: 20px;
     line-height: 40px;
@@ -116,10 +116,10 @@ h6 {
     font-size: 1.1em;
 }
 
-h2#sub-heading {
+h2.sub-heading {
     text-transform: uppercase;
     padding-bottom: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
     font-style: normal;
     font-size: 40px;
 
@@ -258,7 +258,7 @@ footer {
 
 
 a {
-    color: #36AECC;
+    color: #0C4A60;
     text-decoration: none;
 }
 
@@ -267,7 +267,7 @@ a:visited {
 }
 
 a:hover {
-    color: #000;
+    color: #8F8B8B;
     text-decoration: underline;
 }
 
@@ -338,12 +338,8 @@ span.q_stat {
     padding-top: 14px;
 }
 
-#created_by {
-    font-size: 20px;
-}
-
 .single_tag {
-    font-size: 18px;
+    font-size: 24px;
     padding-left: 10px;
     padding-right: 10px;
     background: #EF6C33;
@@ -365,8 +361,8 @@ span.q_stat {
 .count, .counted {
     font-family: 'PT Sans Narrow', sans-serif;
     text-align: center;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 30px;
     padding-left: 5px;
     padding-right: 5px;
 
@@ -378,26 +374,35 @@ span.q_stat {
     border-radius: 5px;
 }
 
+
 .q_title {
     font-size: 45px;
-    margin-left: 3px;
+    margin-left: 30px;
     color: #0C4A60;
     text-decoration: none;
 }
 
 .q_title:hover {
-    margin-left: 10px;
+    margin-left: 30px;
     color: #8F8B8B;
 }
 
 
 .q_title:visited {
-    margin-left: 10px;
+    margin-left: 30px;
     color: #0C4A60;
     text-decoration: none;
 }
 
-#q_heading {
+
+#created_by {
+    font-size: 20px;
+    margin-left: 40px;
+
+}
+
+
+.heading {
     font-family: 'PT Sans Narrow', sans-serif;
     text-transform: uppercase;
     font-style: normal;
@@ -424,3 +429,54 @@ span.q_stat {
 
 }
 
+
+.new_question_vote {
+
+
+}
+
+#q_show_page_tags {
+
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #EF6C33;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 10px;
+}
+
+.button {
+    width: 200px;
+    color: #ABDFF1;
+    background: #1497B8;
+    background-image: -webkit-linear-gradient(top, #1497B8, #0C4A60);
+    background-image: -moz-linear-gradient(top, #1497B8, #0C4A60);
+    background-image: -ms-linear-gradient(top, #1497B8, #0C4A60);
+    background-image: -o-linear-gradient(top, #1497B8, #0C4A60);
+    background-image: linear-gradient(to bottom, #1497B8, #0C4A60);
+    -webkit-border-radius: 9;
+    -moz-border-radius: 9;
+    border-radius: 9px;
+    -webkit-box-shadow: 8px 1px 10px #666666;
+    -moz-box-shadow: 8px 1px 10px #666666;
+    box-shadow: 8px 1px 10px #666666;
+    font-family: 'Open Sans Condensed', sans-serif; 
+    font-size: 30px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+
+.button:hover {
+  background: #0c4a60;
+  width: 200px;
+  color: #EF6C33;
+  background-image: -webkit-linear-gradient(top, #0c4a60, #8f8b8b);
+  background-image: -moz-linear-gradient(top, #0c4a60, #8f8b8b);
+  background-image: -ms-linear-gradient(top, #0c4a60, #8f8b8b);
+  background-image: -o-linear-gradient(top, #0c4a60, #8f8b8b);
+  background-image: linear-gradient(to bottom, #0c4a60, #8f8b8b);
+  text-decoration: none;
+
+}

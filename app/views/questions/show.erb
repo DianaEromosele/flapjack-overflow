@@ -6,13 +6,21 @@
   </ul>
 <%end%>
 
-<h1 id="q_heading"><%= @q.title %></h1>
+<h1 class="heading"><%= @q.title %></h1>
 <p>Q: <%= @q.body %></p>
 <p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
 
-<% if session['user_id'] == @q.user_id %>
-<a href="/questions/<%= @q.id %>/edit">Edit your question</a>
-<% end %>
+
+    <% @q.tags.each do |tag| %>
+      <span class="single_tag"><a class="tag_link" href='/tags/<%= tag.id %>'><%= tag.name %></a></span>
+
+    <% end %>
+
+<div>
+  <% if session['user_id'] == @q.user_id %>
+    <a class="button" href="/questions/<%= @q.id %>/edit">Edit your question</a>
+  <% end %>
+</div>
 
 <article id="upvote-container">
   <p><%= @q.votes.length %></p>
@@ -29,24 +37,24 @@
   </form>
 </article>
 
-<p><a id="comment-link" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
+<p><a id="comment-link" class="button" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
 
-<h2 id="sub-heading">Comments</h2>
+<h2 class="sub-heading">Comments</h2>
 <% @comments.each do |comment| %>
   <article class="comment_block">• "<%= comment.body %>" -<%= comment.user.username %></article>
 <% end %>
 
-<h2 id="sub-heading">Answers</h2>
+<h2 class="sub-heading">Answers</h2>
 <% @q.answers.each do |answer| %>
   <div id="answer_container">
     A: <%= answer.body %>
     <div id="answer_username"><%= answer.user.username %></div>
-    <div><a href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
+    <div><a class="button" href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
 
     <% answer.comments.limit(3).each do |comment| %>
-      <article class="comment_block"><%= comment.body %> -- <%= comment.user.username %></article>
+      <article class="comment_block">"<%= comment.body %>"" - <%= comment.user.username %></article>
     <% end %>
-    <a href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this answer</a>
+    <a class="button" href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this answer</a>
 
     <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
       <input id="answer_delete" type="hidden" name="_method" value="delete">
@@ -59,7 +67,8 @@
 <form id="answer_form" method="post" action="/answers">
   <input type="hidden" name="question_id" value=<%=@q.id%> >
   <input id="answer_body" type="text" name="body" placeholder="Answer" required>
-  <input type="submit" value="submit your answer">
+      <input class="button" type="submit" value="Submit your answer">
+
 </form>
 
 

@@ -1,11 +1,29 @@
-<h1> <%= @user.username %> </h1>
+<h1 class="heading"><%= @user.username %>'s Profile</h1>
 <p id="user_show_bio"> FlapJack Overflow member since <%= @user.created_at.strftime("%m-%d-%Y") %></p>
 
+
+  <% if session['user_id'] == @user.id %>
+    <a class="button" href="/users/<%=@user.id%>/edit">Edit your profile</a>
+  <% end %>
+
+
+<h2 class="sub-heading"><%= @user.username %>'s questions:</h2> 
 <ol>
 <%  @questions .each do |question| %>
 
 <li> <a href="/questions/<%= question.id %>"> <%= question.title %> </a> </li>
 
-
 <% end %>
+
+
 </ol>
+
+
+
+<h2 class="sub-heading"><%= @user.username %>'s answers:</h2> 
+<p>Coming soon...</p>
+
+
+
+<h2 class="sub-heading"><%= @user.username %>'s comments:</h2> 
+<p>Coming soon...</p>

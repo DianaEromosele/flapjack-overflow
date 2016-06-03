@@ -1,1 +1,28 @@
-edit.erb
+<h1 class="heading"> Edit your Flapjack Overflow User Profile:</h1>
+
+<% if @errors %>
+ <% @errors.each do |error_message| %>
+    <%= error_message %>
+  <% end %>
+<% end %>
+
+
+<form method="post" action="/users/<%= @user.id %>">
+  <input value="put" type="hidden" name="_method">
+<div>
+  <label for="name">Username:</label>
+  <input type="text" name="username" value="<%= @user.username %>">
+</div>
+
+<div>
+  <label for="email">Email:</label>
+  <input type="text" name="email" value="<%= @user.email %>">
+</div>
+
+<div>
+  <label for="password">Password:</label>
+  <input type="password" name="password" value="<%= @user.password %>">
+</div>
+
+  <input type="submit" value="update your profile" class="button">
+</form>
