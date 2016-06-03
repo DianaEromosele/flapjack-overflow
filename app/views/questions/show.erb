@@ -1,3 +1,5 @@
+<div class="top-of-content">
+
 <%if @errors%>
   <ul>
     <%@errors.each do |error| %>
@@ -9,7 +11,7 @@
 <h1 class="heading"><%= @q.title %></h1>
 <p>Q: <%= @q.body %></p>
 <p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
-
+</div>
 
     <% @q.tags.each do |tag| %>
       <span class="single_tag"><a class="tag_link" href='/tags/<%= tag.id %>'><%= tag.name %></a></span>
