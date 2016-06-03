@@ -6,10 +6,9 @@
   </ul>
 <%end%>
 
-<h1><%= @q.title %></h1>
-<p><%= @q.body %></p>
-<p>by: <%= @q.user.username %></p>
-<p>posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
+<h1 id="q_heading"><%= @q.title %></h1>
+<p>Q: <%= @q.body %></p>
+<p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
 
 <% if session['user_id'] == @q.user_id %>
 <a href="/questions/<%= @q.id %>/edit">Edit your question</a>
@@ -19,27 +18,29 @@
   <p><%= @q.votes.length %></p>
   <p>Upvote</p>
   <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
-    <button type="submit" name="submit_param" value="submit_value"></button>
+    <button id="up-vote-button" type="submit" name="submit_param" value="submit_value"></button>
   </form>
 </article>
 
 <article id="downvote-container">
   <p>Downvote</p>
   <form method="post" action='/questions/<%= @q.id %>/downvote' class="new-question-vote">
-    <button type="submit" name="submit_param" value="submit_value"></button>
+    <button id="down-vote-button" type="submit" name="submit_param" value="submit_value"></button>
   </form>
 </article>
 
-<p><a href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
+<p><a id="comment-link" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
 
+<h2 id="sub-heading">Comments</h2>
 <% @comments.each do |comment| %>
-  <article class="comment_block"><%= comment.body %> -- <%= comment.user.username %></article>
+  <article class="comment_block">• "<%= comment.body %>" -<%= comment.user.username %></article>
 <% end %>
 
+<h2 id="sub-heading">Answers</h2>
 <% @q.answers.each do |answer| %>
   <div id="answer_container">
-    <%= answer.body %>
-    <div><%= answer.user.username %></div>
+    A: <%= answer.body %>
+    <div id="answer_username"><%= answer.user.username %></div>
     <div><a href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
 
     <% answer.comments.limit(3).each do |comment| %>
