@@ -8,10 +8,23 @@
   </ul>
 <%end%>
 
-<h1 class="heading"><%= @q.title %></h1>
-<p>Q: <%= @q.body %></p>
-<p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
+<div id="question-title-body">
+  <h1 class="heading"><%= @q.title %></h1>
+  <p>Q: <%= @q.body %></p>
+  <p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
+  </div>
 </div>
+
+<div id='edit_question_container'>
+</div>
+
+<div>
+  <% if session['user_id'] == @q.user_id %>
+    <a id="edit_question_link" class="button" href="/questions/<%= @q.id %>/edit">Edit your question</a>
+  <% end %>
+</div>
+
+
 
     <% @q.tags.each do |tag| %>
       <span class="single_tag"><a class="tag_link" href='/tags/<%= tag.id %>'><%= tag.name %></a></span>
@@ -50,13 +63,6 @@
       <a class="flapjack-button" id="submit_answer_link" href="/questions/<%= @q.id %>/answers/new">Submit an Answer</a>
     </div>
   <% end %>
-
-<div>
-  <% if session['user_id'] == @q.user_id %>
-    <a class="button" href="/questions/<%= @q.id %>/edit">Edit your question</a>
-  <% end %>
-</div>
-
 
 <section id="vote-container">
   <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-up-vote">

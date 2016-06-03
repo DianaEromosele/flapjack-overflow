@@ -91,5 +91,31 @@ $(document).ready(function() {
     })
   });
 
+  $('#edit_question_link').on('click', function(event){
+    event.preventDefault();
+    var $target = $(event.target)
+    $.ajax({
+      url: $target.attr('href'),
+      method: 'get'
+      }).done(function(response){
+        $target.hide();
+        $('#edit_question_container').html(response);
+      });
+  });
+
+
+   $('#edit_question_container').on('submit', '#edit-question-form', function(event){
+    event.preventDefault();
+
+    var $target = $(event.target)
+    $.ajax({
+      url: $target.attr("action"),
+      method: "put",
+      data: $target.serialize()
+    }).done(function(response){
+      $target.parent().hide();
+      $("#question-title-body").html(response);
+    });
+  });
 
 });
