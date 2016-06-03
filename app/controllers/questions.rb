@@ -15,7 +15,7 @@ post '/questions' do
       new_tag = Tag.find_or_create_by(name: tag)
       QuestionTag.find_or_create_by(question_id: @q.id, tag_id: new_tag.id)
     end
-    erb :'questions/_single', layout: false
+    erb :'questions/_single', layout: false, locals: {q: @q}
   else
     @errors = @q.errors.full_messages
     erb :'questions/new', layout: false
