@@ -1,4 +1,4 @@
-app/controllers/comments.rbget '/questions/:id/comments/new' do
+get '/questions/:id/comments/new' do
   @question = Question.find_by(id: params[:id])
   erb :'comments/question-comments'
 end
