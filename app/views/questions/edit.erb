@@ -9,18 +9,18 @@
 
 <h1>Revise your thoughts on this flapjack post ...</h1>
 
-<form method="post" action="/questions/<%= @question.id %>">
+<form method="post" action="/questions/<%= @q.id %>">
   <input type="hidden" name="_method" value="put">
   <div>
-    <input name="title" type="text" value="<%= @question.title %>">
+    <input name="title" type="text" value="<%= @q.title %>">
   </div>
   <div>
-    <textarea name="body"><%= @question.body %></textarea>
+    <textarea name="body"><%= @q.body %></textarea>
   </div>
   <input type="submit" value="Edit">
 </form>
 
-<form method="post" action="/questions/<%= @question.id %>">
+<form method="post" action="/questions/<%= @q.id %>">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 </form>
