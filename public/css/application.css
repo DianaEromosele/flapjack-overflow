@@ -562,14 +562,13 @@ textarea:focus {
 
 #vote-container {
     width: 20%;
-    height: 200px;
+    height: 180px;
     border: 1px solid black;
 }
 
 .new-up-vote {
     padding: 0;
     margin: 0;
- /*   border: 1px dashed black;*/
     position: relative;
     bottom: 2%;
 }
@@ -578,7 +577,6 @@ textarea:focus {
     padding: 0;
     margin: 0;
     position: relative;
-   /* border: 1px dashed black;*/
     bottom: 13%;
 }
 
@@ -590,7 +588,7 @@ textarea:focus {
     border-bottom: 30px solid #1497b8;
     position: relative;
     top: 50%;
-    left: 41%;
+    left: 38%;
 }
 
 #down-vote-button {
@@ -601,7 +599,7 @@ textarea:focus {
     border-top: 30px solid #8f8b8b;
     position: relative;
     top: 50%;
-    left: 41%;
+    left: 38%;
 }
 
 .vote-tally {
