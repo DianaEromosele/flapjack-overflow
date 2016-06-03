@@ -19,6 +19,7 @@ $(document).ready(function() {
       method: 'post',
       data: $('#new_q_form').serialize()
     }).done(function(response){
+      $('#new_q_link').show();
       $('#new_q_form').hide();
       $('#errors_list').hide();
       $('#question_list').prepend(response);
@@ -114,6 +115,7 @@ $(document).ready(function() {
       data: $target.serialize()
     }).done(function(response){
       $target.parent().hide();
+      $('#edit_question_link').show();
       $("#question-title-body").html(response);
     });
   });
