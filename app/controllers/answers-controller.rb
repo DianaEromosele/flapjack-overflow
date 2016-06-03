@@ -19,7 +19,7 @@ end
 get '/questions/:question_id/answers/:id/edit' do
   @question = Question.find_by(id: params[:question_id])
   @answer = Answer.find_by(id: params[:id])
-  erb :'answers/_edit_answer', layout: false
+  erb :'answers/_edit_form', layout: false
 end
 
 put '/questions/:question_id/answers/:id' do
@@ -28,7 +28,7 @@ put '/questions/:question_id/answers/:id' do
   @answer.assign_attributes(params[:answer])
 
   if request.xhr? && @answer.save
-    erb :"answers/_edit_answer", layout: false, locals: {answer: @answer, question: @question}
+    erb :"answers/_single-answer", layout: false, locals: {answer: @answer, question: @question}
   else
     @errors = @question.errors.full_messages
     erb :'answers/edit'

@@ -62,7 +62,7 @@ $(document).ready(function() {
       method: "get",
       url: $target.attr('href')
     }).done(function(response){
-      $target.parent().append(response);
+      $target.parent().parent().find(".edit-form-container").html(response);
     });
   });
 
@@ -75,9 +75,22 @@ $(document).ready(function() {
       url: $target.attr('action'),
       data: $target.serialize()
     }).done(function(response){
-      $(".edit_form").remove();
-      $(".edit_answer_section").append(response);
-      $(".edit_answer_link").show();
+
+      debugger;
+      $target.parent().parent().html(response);
+
+
+      // pull out answer id from response. $(response).attr(id)
+      // find the form with that id, because you have all these forms their respective id
+      // var my fun id is response.attr(id)
+      // $(div.class#responses id).attr(form).remove
+
+    //   $(".edit_form").remove();
+    //    $().html(response);
+    //   $(".edit_answer_section").html(response);
+    //   $(".edit_answer_link").show();
+    // debugger;
+
     });
   });
 
