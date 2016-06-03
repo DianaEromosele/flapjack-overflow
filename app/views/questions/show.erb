@@ -28,7 +28,7 @@
       <a class="edit_answer_link" class= "flapjack-button" href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
     </div>
 
-    <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
+    <form class="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
       <input id="answer_delete" type="hidden" name="_method" value="delete">
       <input type="submit" value="delete answer" class="flapjack-button">
     </form>

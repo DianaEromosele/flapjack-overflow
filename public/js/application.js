@@ -75,23 +75,20 @@ $(document).ready(function() {
       url: $target.attr('action'),
       data: $target.serialize()
     }).done(function(response){
-
-      debugger;
       $target.parent().parent().html(response);
+    })
+  });
 
 
-      // pull out answer id from response. $(response).attr(id)
-      // find the form with that id, because you have all these forms their respective id
-      // var my fun id is response.attr(id)
-      // $(div.class#responses id).attr(form).remove
-
-    //   $(".edit_form").remove();
-    //    $().html(response);
-    //   $(".edit_answer_section").html(response);
-    //   $(".edit_answer_link").show();
-    // debugger;
-
-    });
+   $(".answers_container").on("submit", ".delete_answer_form", function(event){
+    event.preventDefault();
+    var $target = $(event.target);
+    $.ajax({
+      method: "delete",
+      url: $target.attr("action")
+    }).done(function(response){
+      $target.parent().remove();
+    })
   });
 
 
