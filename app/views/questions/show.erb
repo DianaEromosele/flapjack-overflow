@@ -76,25 +76,26 @@
 </article>
 
 <% if logged_in? %>
-  <p><a id="comment-link" class="button" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
+  <p><a id="comment-link" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
 <% end %>
 
-<h2 class="sub-heading">Comments</h2>
+
+<h3 class="h3-sub-heading">Comments</h2>
 <% @comments.each do |comment| %>
   <article class="comment_block">• "<%= comment.body %>" -<%= comment.user.username %></article>
 <% end %>
 
-<h2 class="sub-heading">Answers</h2>
+<h2 class="h2-sub-heading">Answers</h2>
 <% @q.answers.each do |answer| %>
   <div id="answer_container">
     A: <%= answer.body %>
     <div id="answer_username"><%= answer.user.username %></div>
-    <div><a class="button" href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
+    <div><a href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
 
     <% answer.comments.limit(3).each do |comment| %>
       <article class="comment_block">"<%= comment.body %>"" - <%= comment.user.username %></article>
     <% end %>
-    <a class="button" href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this answer</a>
+    <a href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this answer</a>
 
     <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
       <input id="answer_delete" type="hidden" name="_method" value="delete">
