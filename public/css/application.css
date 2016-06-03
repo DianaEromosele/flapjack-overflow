@@ -18,7 +18,6 @@ header {
     padding-left: 300px;
     padding-right: 300px;
     padding-bottom: 300px;
-    margin-bottom: 200px;
 }
 
 
@@ -31,6 +30,7 @@ header {
     padding-bottom: 50px;
     background-color: white;
     border-bottom: 1px solid gray;
+
 }
 
 .home-links {
@@ -54,7 +54,7 @@ header {
 #login-toolbar {
     /*background-color: white;*/
     position: absolute;
-    margin-left: 1200px;
+    margin-left: 1000px;
     padding-bottom: 100px;
     font-size: 50px;
 
@@ -63,12 +63,15 @@ header {
 
 
 #content {
-    margin: 0 auto;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 1em;
     max-width: 37em;
     position: relative;
     top: 400px;
     width: 61.8%;
+    margin-bottom: 150px;
 }
 
 
@@ -465,7 +468,7 @@ span.q_stat {
 }
 
 
-/*.button:hover {
+.button:hover {
   background: #0c4a60;
   width: 400px;
   color: #EF6C33;
@@ -476,7 +479,7 @@ span.q_stat {
   background-image: linear-gradient(to bottom, #0c4a60, #8f8b8b);
   text-decoration: none;
 
-}*/
+}
 
 
 #new_q_link {
@@ -563,7 +566,7 @@ textarea:focus {
 #vote-container {
     width: 20%;
     height: 180px;
-    border: 1px solid black;
+    float: right;
 }
 
 .new-up-vote {
@@ -588,7 +591,7 @@ textarea:focus {
     border-bottom: 30px solid #1497b8;
     position: relative;
     top: 50%;
-    left: 38%;
+    left: 42%;
 }
 
 #down-vote-button {
@@ -599,7 +602,7 @@ textarea:focus {
     border-top: 30px solid #8f8b8b;
     position: relative;
     top: 50%;
-    left: 38%;
+    left: 42%;
 }
 
 .vote-tally {

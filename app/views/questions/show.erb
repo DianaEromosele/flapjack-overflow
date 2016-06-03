@@ -1,5 +1,3 @@
-<div class="top-of-content">
-
 <%if @errors%>
   <ul>
     <%@errors.each do |error| %>
@@ -8,21 +6,23 @@
   </ul>
 <%end%>
 
-<div id="question-title-body">
-  <h1 class="heading"><%= @q.title %></h1>
-  <p>Q: <%= @q.body %></p>
-  <p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
-  </div>
-</div>
 
-<div id='edit_question_container'>
-</div>
+<h1 class="heading"><%= @q.title %></h1>
 
-<div>
-  <% if session['user_id'] == @q.user_id %>
-    <a id="edit_question_link" class="button" href="/questions/<%= @q.id %>/edit">Edit your question</a>
-  <% end %>
-</div>
+<section id="vote-container">
+  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-up-vote">
+    <button id="up-vote-button" type="submit" name="submit_param" value="submit_value"></button>
+  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
+ </form>
+  <p class="vote-tally"><%= @q.votes.length %></p>
+  <form method="post" action='/questions/<%= @q.id %>/downvote' class="new-down-vote">
+    <button id="down-vote-button" type="submit" name="submit_param" value="submit_value"></button>
+  </form>
+</section>
+
+
+<p>Q: <%= @q.body %></p>
+<p id="q_show_user_name-date">by: <%= @q.user.username %>  |  posted on: <%= @q.created_at.strftime('%B %e, %Y') %></p>
 
 
 
@@ -31,50 +31,58 @@
 
     <% end %>
 
-<div class="answers_container">
+<h2 class="h2-sub-heading">Answers</h2>
+
   <% @q.answers.each do |answer| %>
-  <div class="single-answer">
-    <div class="answer-body"><%= answer.body %></div>
-    <div><%= answer.user.username %></div>
-    <%= answer.created_at.strftime("%m-%d-%Y") %>
+  <div class="answers_container">
+      A: <%= answer.body %> 
+
+    <div id="answer_username">by: <%= answer.user.username %> | <%= answer.created_at.strftime("%m-%d-%Y") %></div>
 
   <% if answer.user_id ==  session[:user_id] %>
     <div class="edit_answer_section">
-      <a class="edit_answer_link" class= "flapjack-button" href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
-    </div>
+      <a class="edit_answer_link button" href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this post</a>
+    </div>  
 
-    <form class="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
+    <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
       <input id="answer_delete" type="hidden" name="_method" value="delete">
-      <input type="submit" value="delete answer" class="flapjack-button">
+      <input type="submit" value="delete answer" class="button">
     </form>
+
   <% end %>
 
     <div class="edit-form-container">
     </div>
-  </div>
-  <% end %>
 
 
 </div>
 
+  <% end %>
+
+
+
+
+
+
+
+
 
   <% if logged_in? %>
     <div id="new_answer">
-      <a class="flapjack-button" id="submit_answer_link" href="/questions/<%= @q.id %>/answers/new">Submit an Answer</a>
+      <a class="button" id="submit_answer_link" href="/questions/<%= @q.id %>/answers/new">Submit an Answer</a>
     </div>
   <% end %>
 
-<section id="vote-container">
-  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-up-vote">
-    <button id="up-vote-button" type="submit" name="submit_param" value="submit_value"></button>
-  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
-    <button type="submit" name="submit_param" value="submit_value"></button>
-  </form>
-  <p class="vote-tally"><%= @q.votes.length %></p>
-  <form method="post" action='/questions/<%= @q.id %>/downvote' class="new-down-vote">
-    <button id="down-vote-button" type="submit" name="submit_param" value="submit_value"></button>
-  </form>
-</section>
+
+<div>
+  <% if session['user_id'] == @q.user_id %>
+    <a class="button" href="/questions/<%= @q.id %>/edit">Edit your question</a>
+  <% end %>
+</div>
+
+
+
+
 
 <% if logged_in? %>
   <p><a id="comment-link" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
@@ -85,26 +93,6 @@
 <% @comments.each do |comment| %>
   <article class="comment_block">• "<%= comment.body %>" -<%= comment.user.username %></article>
 <% end %>
-
-<h2 class="h2-sub-heading">Answers</h2>
-<% @q.answers.each do |answer| %>
-  <div id="answer_container">
-    A: <%= answer.body %>
-    <div id="answer_username"><%= answer.user.username %></div>
-    <div><a href="/answers/<%= answer.id %>/comments/new">Comment on this answer</a></div>
-
-    <% answer.comments.limit(3).each do |comment| %>
-      <article class="comment_block">"<%= comment.body %>"" - <%= comment.user.username %></article>
-    <% end %>
-    <a href="/questions/<%=@q.id%>/answers/<%= answer.id%>/edit">Edit this answer</a>
-
-    <form id="delete_answer_form" method="post" action="/questions/<%= @q.id %>/answers/<%= answer.id %>">
-      <input id="answer_delete" type="hidden" name="_method" value="delete">
-      <input type="submit" value="delete answer" class="button">
-    </form>
-  </div>
-<% end %>
-
 
 
 
