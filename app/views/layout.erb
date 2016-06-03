@@ -20,24 +20,24 @@
   <title></title>
 </head>
 <body>
-<div id="content">
-  <header>
-    <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
 
-    <div id="login-toolbar">
+  <header>
+    <a href="/questions"><img id="logo-header-img" src="/img/flapjack_overflow_logo.png"></a>
+      <div id="login-toolbar">
       <% if logged_in? %>
-        <a href="/users/<%= current_user.id%>"> <%= current_user.username %> </a> |
-        <a href="/logout">Log out</a> |
+        <a class="home-links" href="/users/<%= current_user.id%>"> <%= current_user.username %> </a> |
+        <a class="home-links" href="/logout">Log out</a> |
       <% else %>
-        <a href="/login">Log in</a> |
-        <a href="/users/new">Register</a> |
+        <a class="home-links" href="/login">Log in</a> |
+        <a class="home-links" href="/users/new">Register</a> |
       <% end %>
-      <a href="/">Home</a>
+      <a class="home-links" href="/">Home</a>
+      </div>
   </header>
 
+  <div id="content">
+    <%= yield %>  
+  </div>
 
-
-  <%= yield %>
-</div>
 </body>
 </html>

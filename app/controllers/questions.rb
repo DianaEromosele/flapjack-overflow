@@ -15,7 +15,7 @@ post '/questions' do
       new_tag = Tag.find_or_create_by(name: tag)
       QuestionTag.find_or_create_by(question_id: @q.id, tag_id: new_tag.id)
     end
-    erb :'questions/_single', layout: false
+    erb :'questions/_single', layout: false, locals: {q: @q}
   else
     @errors = @q.errors.full_messages
     erb :'questions/new', layout: false
@@ -24,6 +24,7 @@ end
 
 get '/questions/:id' do
   @q = Question.find_by(id: params[:id])
+  @tag = Tag.find_by(id: params[:id])
   halt(404, erb(:'404')) if @q.nil?
   @comments = @q.comments.limit(3)
   @q.views += 1

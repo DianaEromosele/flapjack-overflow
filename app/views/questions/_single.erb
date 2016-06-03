@@ -1,12 +1,16 @@
 <li class="question_in_list">
-  <span class="q_stat"><%= @q.votes.length %> votes</span>
-  <span class="q_stat"><%= @q.answers.length %> answers</span>
-  <span class="q_stat"><%= @q.views %> views</span>
-  <a href="/questions/<%= @q.id %>"><%= @q.title %></a>
+  <span class="q_stat"><div class="count"><%= q.votes.length %></div> <div class="counted">votes</div></span>
+  <span class="q_stat"><div class="count"><%= q.answers.length %></div> <div class="counted">answers</div></span>
+  <span class="q_stat"><div class="count"><%= q.views %></div> <div class="counted">views</div></span>
+  <a class="q_title" href="/questions/<%= q.id %>"><%= q.title %></a>
   <div>
-  <% @q.tags.each do |tag| %>
-  <span class="single_tag"><a href='/tags/<%= tag.id %>'><%= tag.name %></a></span>
+  <% if q.tags.length > 0 %>
+  <% q.tags.each do |tag| %>
+  <span class="single_tag"><a class="tag_link" href='/tags/<%= tag.id %>'><%= tag.name %></a></span>
   <% end %>
+  <% else %>
+  <span class="single_tag"><a class="tag_link" href='/tags'>tags</a></span>
+  <% end %>
+  <span id="created_by">Posted on <%= q.created_at.strftime('%B %e, %Y') %> by <a href='/users/<%= q.user.id %>'><%= q.user.username %></a></span>
   </div>
-  <div id="created_by">Posted on <%= @q.created_at.strftime('%B %e, %Y') %> by <%= @q.user.username %></div>
 </li>
