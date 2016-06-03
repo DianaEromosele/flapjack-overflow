@@ -33,7 +33,7 @@ QuestionTag.create(question_id: 1, tag_id: 3)
 
 
 
-question_two = Question.create(title: "Blueberry Panckes", body: "What are the ingredients for blueberry pancakes?", user_id: 2)
+question_two = Question.create(title: "Blueberry Pancakes", body: "What are the ingredients for blueberry pancakes?", user_id: 2)
 
 answer_two = Answer.create(body: "Blueberries!", user_id: 4, question_id: 2)
 

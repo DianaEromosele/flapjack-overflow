@@ -17,11 +17,11 @@
   <div>
     <textarea name="body"><%= @q.body %></textarea>
   </div>
-  <input type="submit" value="Edit">
+  <input class="button" type="submit" value="Edit">
 </form>
 
 <form method="post" action="/questions/<%= @q.id %>">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
+  <input class="button" type="submit" value="Delete">
 </form>
 </div>
