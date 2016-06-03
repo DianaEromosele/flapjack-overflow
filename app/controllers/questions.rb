@@ -46,7 +46,11 @@ put '/questions/:id' do
   if session["user_id"] == @q.user_id
     @q.assign_attributes(title: params['title'], body: params['body'])
     if @q.save
-      redirect "questions/#{@q.id}"
+      if request.xhr?
+        erb :"questions/_edited-question", layout: false, locals: {q: @q}
+      else
+        redirect "questions/#{@q.id}"
+      end
     else
       @errors = @q.errors.full_messages
       erb :'questions/edit'

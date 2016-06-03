@@ -6,10 +6,10 @@
     <% end %>
   </ul>
 <% end %>
+<div id="question_edit_container">
+<h1>Revise your thoughts on your flapjack post ...</h1>
 
-<h1>Revise your thoughts on this flapjack post ...</h1>
-
-<form method="post" action="/questions/<%= @q.id %>">
+<form id="edit-question-form" method="post" action="/questions/<%= @q.id %>">
   <input type="hidden" name="_method" value="put">
   <div>
     <input name="title" type="text" value="<%= @q.title %>">
@@ -24,3 +24,4 @@
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 </form>
+</div>
