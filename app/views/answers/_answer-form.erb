@@ -1,0 +1,8 @@
+  <form id="answer_form"  method="post" action="/questions/<%= @question.id %>/answers">
+
+    <input type="hidden" name="question_id" value= "<%= @question.id %> ">
+    <input id="answer_body" type="text" name="body"  required>
+   <div> <input type="submit" value="Submit Answer"> </div>
+
+  </form>
+
