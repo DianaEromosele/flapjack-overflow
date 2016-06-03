@@ -58,22 +58,17 @@
 </div>
 
 
-<article id="upvote-container">
-  <p><%= @q.votes.length %></p>
-  <p>Upvote</p>
-  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
+<section id="vote-container">
+  <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-up-vote">
     <button id="up-vote-button" type="submit" name="submit_param" value="submit_value"></button>
   <form method="post" action='/questions/<%= @q.id %>/upvote' class="new-question-vote">
     <button type="submit" name="submit_param" value="submit_value"></button>
   </form>
-</article>
-
-<article id="downvote-container">
-  <p>Downvote</p>
-  <form method="post" action='/questions/<%= @q.id %>/downvote' class="new-question-vote">
+  <p class="vote-tally"><%= @q.votes.length %></p>
+  <form method="post" action='/questions/<%= @q.id %>/downvote' class="new-down-vote">
     <button id="down-vote-button" type="submit" name="submit_param" value="submit_value"></button>
   </form>
-</article>
+</section>
 
 <% if logged_in? %>
   <p><a id="comment-link" href="/questions/<%= @q.id %>/comments/new">Comment on this question</a></p>
